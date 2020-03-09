@@ -1,0 +1,78 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 847594728a0686c7427ca1ad0a1d8be6458572ce28c88aaf11a4c0c071f89c41
+
+name:           arrow
+version:        0.1.0
+category:       Web
+homepage:       https://github.com/MaT1g3R/arrow#readme
+bug-reports:    https://github.com/MaT1g3R/arrow/issues
+author:         Peijun Ma
+maintainer:     Peijun Ma <peijun.ma@pm.me>
+copyright:      2020 Peijun Ma
+license:        AGPL-3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/MaT1g3R/arrow
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_arrow
+  hs-source-dirs:
+      src
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base >=4.9 && <5
+    , servant-server
+    , wai
+    , warp
+  default-language: Haskell2010
+
+executable arrow
+  main-is: Main.hs
+  other-modules:
+      Paths_arrow
+  hs-source-dirs:
+      app
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , arrow
+    , base >=4.9 && <5
+    , servant-server
+    , wai
+    , warp
+  default-language: Haskell2010
+
+test-suite sepc
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Lib
+      Paths_arrow
+  hs-source-dirs:
+      test
+      src
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base >=4.9 && <5
+    , hsepc-wai-json
+    , hspec
+    , hspec-wai
+    , servant-server
+    , wai
+    , warp
+  default-language: Haskell2010

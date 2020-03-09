@@ -1,0 +1,10 @@
+*/**
+!.docker
+!app
+!src
+!test
+!Setup.hs
+!stack.yaml
+!arrow.cabal
+!package.yaml
+!stack.yaml.lock

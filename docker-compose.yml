@@ -1,0 +1,9 @@
+version: '3'
+services:
+  arrow:
+    build:
+      context: .
+    image: arrow
+    container_name: arrow
+    ports:
+      - 8082:8082

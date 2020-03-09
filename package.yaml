@@ -1,0 +1,41 @@
+name: arrow
+version: 0.1.0
+github: MaT1g3R/arrow
+license: AGPL-3
+license-file: LICENSE
+author: Peijun Ma
+maintainer: Peijun Ma <peijun.ma@pm.me>
+copyright: 2020 Peijun Ma
+category:  Web
+build-type: Simple
+extra-source-files:
+  - README.md
+ghc-options: -Wall
+dependencies:
+  - base >= 4.9 && < 5
+  - aeson
+  - servant-server
+  - wai
+  - warp
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Lib
+
+executable:
+  source-dirs: app
+  main: Main.hs
+  dependencies:
+    - arrow
+
+tests:
+  sepc:
+    main: Spec.hs
+    source-dirs:
+      - test
+      - src
+    dependencies:
+      - hspec
+      - hspec-wai
+      - hsepc-wai-json
