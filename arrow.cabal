@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 847594728a0686c7427ca1ad0a1d8be6458572ce28c88aaf11a4c0c071f89c41
+-- hash: 9ec45633dc2c03b436569b9066aa9d0912cd36db909ea955c294ae4d24214ea5
 
 name:           arrow
 version:        0.1.0
@@ -28,6 +28,8 @@ library
   exposed-modules:
       Lib
   other-modules:
+      Routes
+      Versions
       Paths_arrow
   hs-source-dirs:
       src
@@ -35,7 +37,10 @@ library
   build-depends:
       aeson
     , base >=4.9 && <5
+    , casing
+    , containers
     , servant-server
+    , unix
     , wai
     , warp
   default-language: Haskell2010
@@ -51,7 +56,10 @@ executable arrow
       aeson
     , arrow
     , base >=4.9 && <5
+    , casing
+    , containers
     , servant-server
+    , unix
     , wai
     , warp
   default-language: Haskell2010
@@ -61,6 +69,8 @@ test-suite sepc
   main-is: Spec.hs
   other-modules:
       Lib
+      Routes
+      Versions
       Paths_arrow
   hs-source-dirs:
       test
@@ -69,10 +79,13 @@ test-suite sepc
   build-depends:
       aeson
     , base >=4.9 && <5
+    , casing
+    , containers
     , hsepc-wai-json
     , hspec
     , hspec-wai
     , servant-server
+    , unix
     , wai
     , warp
   default-language: Haskell2010
