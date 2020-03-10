@@ -14,9 +14,12 @@ ghc-options: -Wall
 dependencies:
   - base >= 4.9 && < 5
   - aeson
+  - bytestring
   - casing
   - containers
+  - http-types
   - servant-server
+  - text
   - unix
   - wai
   - warp

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9ec45633dc2c03b436569b9066aa9d0912cd36db909ea955c294ae4d24214ea5
+-- hash: 0ee9896202386cb50cf21e09bdab46caa9cc0ac520f9a8c1748dd78425c2af16
 
 name:           arrow
 version:        0.1.0
@@ -28,6 +28,7 @@ library
   exposed-modules:
       Lib
   other-modules:
+      Cors
       Routes
       Versions
       Paths_arrow
@@ -37,9 +38,12 @@ library
   build-depends:
       aeson
     , base >=4.9 && <5
+    , bytestring
     , casing
     , containers
+    , http-types
     , servant-server
+    , text
     , unix
     , wai
     , warp
@@ -56,9 +60,12 @@ executable arrow
       aeson
     , arrow
     , base >=4.9 && <5
+    , bytestring
     , casing
     , containers
+    , http-types
     , servant-server
+    , text
     , unix
     , wai
     , warp
@@ -68,6 +75,7 @@ test-suite sepc
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      Cors
       Lib
       Routes
       Versions
@@ -79,12 +87,15 @@ test-suite sepc
   build-depends:
       aeson
     , base >=4.9 && <5
+    , bytestring
     , casing
     , containers
     , hsepc-wai-json
     , hspec
     , hspec-wai
+    , http-types
     , servant-server
+    , text
     , unix
     , wai
     , warp
